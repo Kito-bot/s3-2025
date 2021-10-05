@@ -35,9 +35,7 @@ void print_grid(int grid[9][9])
     }
 }
 
-int load_grid(char *)
-
-    int main()
+int main()
 {
     int grid[9][9] = {{3, -1, 6, 5, -1, 8, 4, -1, -1},
                       {5, 2, -1, -1, -1, -1, -1, -1, -1},
