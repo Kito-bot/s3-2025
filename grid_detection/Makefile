@@ -5,13 +5,13 @@ CFLAGS= -Wall -Wextra -Werror -std=c99 -O3
 LDFLAGS=
 LDLIBS= `pkg-config --libs sdl SDL_image`
 
-all: display
+all: flood_filling
 
-display: display.o pixel_operations.o
+flood_filling: flood_filling.o tools.o
 
-display.o: tools.h pixel_operations.h
+flood_filling.o: tools.h
 
-pixel_operations.o: pixel_operations.h
+tools.o: tools.h
 
 clean:
 	${RM} *.o
