@@ -13,7 +13,7 @@
 int main(void){
 	SDL_Surface* pic;
 	SDL_Surface* screen;
-	pic = load_image("pic.jpg");
+	pic = load_image("../test_images/befor_preproc/2.png");
 	screen = display_image(pic);
 	wait_for_keypressed();
 
@@ -23,16 +23,16 @@ int main(void){
 	wait_for_keypressed();
 
 	//pic = imgRotation(pic,-90.0f); //rotate to right (clockwise)
-	screen = display_image(pic);
+	//screen = display_image(pic);
 
 	wait_for_keypressed();
 
-	for(size_t i=0;i<100;++i){
-		noiseReduction(pic); //for clear pics lower threshhold by 30%
-		screen = display_image(pic);
-	}
+	/*for(size_t i=0;i<100;++i){
+			noiseReduction(pic); //for clear pics lower threshhold by 30%
+			screen = display_image(pic);
+		}*/
 	
-	wait_for_keypressed();
+	//wait_for_keypressed();
 
 	grayscale(pic);
 	screen = display_image(pic);
