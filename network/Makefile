@@ -6,7 +6,7 @@ LDLIBS= -lm -ldl
 
 all: main
 
-main: weight_save_load.o main.o
+main: weight_save_load.o main.o matrice_operations.o
 
 #matrice_operations: matrice_operations.o
 #neural_network_operations: neural_network_operations.o
