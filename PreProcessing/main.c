@@ -13,7 +13,7 @@
 int main(void){
 	SDL_Surface* pic;
 	SDL_Surface* screen;
-	pic = load_image("pic.jpg");
+	pic = load_image("../grid_detection/sudoku-grid.png");
 	screen = display_image(pic);
 	wait_for_keypressed();
 
@@ -27,12 +27,12 @@ int main(void){
 
 	wait_for_keypressed();
 
-	for(size_t i=0;i<100;++i){
+	/*for(size_t i=0;i<100;++i){
 		noiseReduction(pic); //for clear pics lower threshhold by 30%
 		screen = display_image(pic);
-	}
+	}*/
 	
-	wait_for_keypressed();
+	//wait_for_keypressed();
 
 	grayscale(pic);
 	screen = display_image(pic);

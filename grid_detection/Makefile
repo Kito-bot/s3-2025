@@ -17,4 +17,4 @@ clean:
 	${RM} *.o
 	${RM} *.d
 	${RM} display
-	${RM} grayscale
+	${RM} flood_filling
