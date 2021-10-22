@@ -17,12 +17,16 @@ int main(void){
 	screen = display_image(pic);
 	wait_for_keypressed();
 
-	//pic = scale(pic,250,250);
+	pic = scale(pic,500,500);
 	screen = display_image(pic);
 
 	wait_for_keypressed();
 
-	//pic = imgRotation(pic,-90.0f); //rotate to right (clockwise)
+	pic = imgRotation(pic,10.0f); //rotate to right (clockwise)
+	wait_for_keypressed();
+	screen = display_image(pic);
+	pic = imgRotation(pic,90.0f);
+	wait_for_keypressed();
 	screen = display_image(pic);
 
 	wait_for_keypressed();
@@ -33,7 +37,8 @@ int main(void){
 	}*/
 	
 	//wait_for_keypressed();
-
+	pic = load_image("pic1.jpeg");
+	screen = display_image(pic);
 	grayscale(pic);
 	screen = display_image(pic);
 

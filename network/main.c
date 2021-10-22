@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
+#include <err.h>
 #include "weight_save_load.h"
 #include "matrice_operations.h"
+#include "../trivia/animation.h"
 //#include "neural_network_operations.h"
-
 
 double sigmoid(double x);
 double dSigmoid(double x);
@@ -13,6 +15,7 @@ void shuffle(unsigned long *array,unsigned long n);
 double * init_training_inputs(void);
 double * init_training_outputs(void);
 unsigned long * init_trainingsetorder(unsigned long numTrainingSets);
+
 
 double sigmoid(double x){return 1 / (1 + exp(-x));} //the sigmoid function
 
@@ -78,8 +81,14 @@ unsigned long * init_trainingsetorder(unsigned long numTrainingSets)
     
 }
 
-int main(void) //for xor training
+int main(int argc, char** argv) //for xor training
 {   
+
+    if (argc > 3)
+        errx(-1, "Too many arguments");
+    if (argc == 1)
+        errx(-2,"no args");
+
     unsigned long numInputs = 2;
     unsigned long numHiddenNodes = 2;
     unsigned long numOutputs = 1;
@@ -142,12 +151,12 @@ int main(void) //for xor training
     //int trainingSetOrder[] = {0,1,2,3}; //can expand to numTrainingSets - 1
     unsigned long *trainingSetOrder = init_trainingsetorder(numTrainingSets);
 
-    // 1 400 700 10000 10000000
-    printf("training:\n");
-    for (unsigned long n=0; n < 1000; n++) 
+    unsigned long max_epoch = 10000;
+    
+    for (unsigned long n = 0; n < max_epoch; n++) 
     {
         shuffle(trainingSetOrder,numTrainingSets);
-        for (unsigned long x=0; x<numTrainingSets; x++) 
+        for (unsigned long x = 0; x<numTrainingSets; x++) 
         {
         
             unsigned long i = trainingSetOrder[x];
@@ -176,12 +185,18 @@ int main(void) //for xor training
                 }
                 outputLayer[j] = sigmoid(activation);
             }
-            
-            /*printf("Input: %f,%f Output: %f Erxpected_output: %f\n",training_inputs[i*numInputs],
-                    training_inputs[i*numInputs+1],
-                    outputLayer[0],training_outputs[i*numOutputs]);*/
-            if (n % 150){
-                printf("|");
+
+
+            if(strcmp(argv[1],"-s") == 0 || strcmp(argv[1],"--silence")==0){
+                    loading();
+            }else{
+                if(strcmp(argv[1],"-v") == 0 || strcmp(argv[1],"--verbose")==0){
+                    printf("Input: %f,%f Output: %f Expected_output: %f\n",
+                        training_inputs[i*numInputs],
+                        training_inputs[i*numInputs+1],
+                        outputLayer[0],
+                        training_outputs[i*numOutputs]);
+                }
             }
             // Backprop
             
