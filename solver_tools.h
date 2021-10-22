@@ -15,6 +15,13 @@ void print(int arr[N][N]);
 // given row, col
 int isSafe(int grid[N][N], int row, int col, int num);
 
+void read_file(char *name, int grid[9][9]);
+
+void write_file(char *name, int grid[9][9]);
+
+size_t my_str_len(char str[]);
+
+
 /* Takes a partially filled-in grid and attempts
 to assign values to all unassigned locations in
 such a way to meet the requirements for
@@ -22,5 +29,7 @@ Sudoku solution (non-duplication across rows,
 columns, and boxes) */
 int solveSudoku(int grid[N][N], int row, int col);
 
+
+void SolveGrid(char *grid_input);
 
 #endif
