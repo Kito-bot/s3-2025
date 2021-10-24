@@ -1,5 +1,4 @@
 #include "tools.h"
-#include <stdio.h>
 
 void init_sdl()
 {
