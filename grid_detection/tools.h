@@ -2,9 +2,12 @@
 #define TOOLS_H
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <err.h>
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include <err.h>
+#include <math.h>
 
 void init_sdl();
 SDL_Surface *load_image(char *path);
