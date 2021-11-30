@@ -9,6 +9,7 @@
 #include <err.h>
 #include <math.h>
 
+void hough_detection(SDL_Surface *image_surface, int width, int height);//=========>>>>
 void init_sdl();
 SDL_Surface *load_image(char *path);
 SDL_Surface *display_image(SDL_Surface *img);
