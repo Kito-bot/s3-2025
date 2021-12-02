@@ -1,0 +1,27 @@
+main.c:
+
+	a utiliser pour tests
+	arguments : 
+			1- path image 2- rotation effectuee  
+	
+	
+pixel_operations:
+
+	fonctions utiles du tp sdl pour manipuler pixels
+
+image_operations:
+
+	fonctions de preprocessing qui modifient image : grayscale, binarization, etc..
+
+image_handling:
+
+	fonctions pour init et manipuler sdl
+	fonctions pour save images
+
+
+detection:
+	
+	test pour detecter grille
+	
+	// TODO: fonction a modifier et rendre plus lisible
+	fonction detect_grid.. : affiche en couleurs lignes detectees 
