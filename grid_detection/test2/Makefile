@@ -14,14 +14,15 @@ LDFLAGS = -fsanitize=address
 # libs and path for linker
 LDLIBS = `pkg-config --libs sdl SDL_image` -lm
 
-all: hough
+all: main
 
-hough: operations.o hough.o 
+main: operations.o hough.o
 
 hough.o: operations.h hough.h
 
 operations.o: operations.h hough.h
+
 clean:
 	${RM} *.o
 	${RM} *.d
-	${RM} *.bmp
+	${RM} main
